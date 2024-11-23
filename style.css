@@ -1,0 +1,167 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Full height of the viewport */
+    color: white; /* Optional: Makes text stand out on darker backgrounds */
+    overflow: hidden; /* Prevents scrolling */
+}
+
+/* Video Background */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensures the video stays in the background */
+}
+
+.video-background video {
+    object-fit: cover; /* Ensures the video covers the entire screen */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Glowing Text Effect for "VENUS" */
+.glowing-text {
+    color: #fff; /* White color for the text */
+    font-size: 3em; /* Larger font size */
+    text-align: center;
+    text-shadow: 0 0 5px rgba(0, 191, 255, 0.8), 0 0 15px rgba(0, 191, 255, 0.6), 0 0 25px rgba(0, 191, 255, 0.4); /* Lightning blue glow */
+    animation: flicker 1.5s infinite alternate; /* Flicker effect */
+    font-family: 'Cinzel', serif; /* Gothic font */
+    letter-spacing: 5px; /* Add spacing between letters */
+}
+
+/* Flickering Animation */
+@keyframes flicker {
+    0% {
+        text-shadow: 0 0 5px rgba(0, 191, 255, 0.8), 0 0 15px rgba(0, 191, 255, 0.6), 0 0 25px rgba(0, 191, 255, 0.4);
+    }
+    50% {
+        text-shadow: 0 0 5px rgba(0, 191, 255, 0.5), 0 0 10px rgba(0, 191, 255, 0.4), 0 0 15px rgba(0, 191, 255, 0.3);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(0, 191, 255, 0.8), 0 0 15px rgba(0, 191, 255, 0.6), 0 0 25px rgba(0, 191, 255, 0.4);
+    }
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Login Panel */
+.login-panel {
+    background-color: rgba(30, 30, 40, 0.7); /* Nightshade black with slight transparency */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow for depth */
+    border-radius: 8px;
+    padding: 30px;
+    width: 90%; /* Adjust to fit smaller screens */
+    max-width: 400px; /* Limit size on larger screens */
+    text-align: center;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for 3D effect */
+}
+
+/* 3D Effect on Hover */
+.login-panel:hover {
+    transform: translateY(-10px) scale(1.05); /* Slight lift and scaling */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6); /* Darker, more pronounced shadow */
+}
+
+/* H1 Header */
+.login-panel h1 {
+    margin-bottom: 20px;
+    color: #2a3d66; /* Galaxy dark blue */
+}
+
+/* Input Fields */
+.login-panel input {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 10px;
+    margin: 10px 0;
+    border: none; /* Remove all borders except the bottom one */
+    border-bottom: 2px solid #2a3d66; /* Bottom border with dark blue color */
+    background-color: transparent; /* Make the background transparent */
+    font-size: 16px;
+    color: white; /* White text color */
+    box-sizing: border-box; /* Ensure width includes padding and border */
+    outline: none; /* Remove the default outline */
+    text-align: center; /* Center the text inside the input fields */
+}
+
+/* Focused Input Fields (When clicked) */
+.login-panel input:focus {
+    border-bottom: 2px solid #00BFFF; /* Change to the glowing blue color when focused */
+}
+
+/* Login Button */
+.login-panel button {
+    width: calc(100% - 20px); /* Match the input fields */
+    padding: 10px;
+    background-color: transparent; /* Make background transparent */
+    color: white; /* White text color */
+    border: 2px solid #2a3d66; /* Border matches the textbox bottom line color */
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s; /* Transition effects for border color */
+    box-sizing: border-box;
+}
+
+/* Hover Effect on Login Button */
+.login-panel button:hover {
+    border-color: #00BFFF; /* Change border color to the glowing blue when hovered */
+    background-color: #2a3d66; /* Optionally, change background to match username color */
+}
+
+/* Error Message */
+#error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-panel {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .login-panel h1 {
+        font-size: 24px; /* Slightly smaller title */
+    }
+
+    .login-panel input,
+    .login-panel button {
+        font-size: 14px; /* Smaller font */
+        width: calc(100% - 20px); /* Ensure consistent resizing */
+    }
+}
+
+@media (max-width: 480px) {
+    .login-panel {
+        padding: 15px; /* Further reduce padding */
+    }
+
+    .login-panel h1 {
+        font-size: 20px;
+    }
+
+    .login-panel input,
+    .login-panel button {
+        font-size: 12px;
+        width: calc(100% - 20px); /* Ensure consistent resizing */
+    }
+}
