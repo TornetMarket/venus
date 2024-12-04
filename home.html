@@ -1,32 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="home.css"> <!-- Link to your home-specific CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Video Background -->
-    <div class="video-background">
-        <video autoplay muted loop>
-            <source src="https://i.imgur.com/mBQ1bVI.mp4" type="video/mp4">
-        </video>
-    </div>
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
-    <!-- Home Panel -->
-    <div class="home-panel" id="homePanel">
-        <h1>VENUS | HUB</h1>
-    </div>
+/* Video Background */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps the video in the background */
+}
 
-    <!-- Network Hacking Panel -->
-    <div class="home-panel" id="networkPanel">
-        <h1>Network Hacking</h1>
-        <button id="wifiButton">📡</button>
-        <button id="lightningButton">⚡</button>
-    </div>
-    <script src="script.js" defer></script> <!-- Original script.js -->
-</body>
-</html>
+.video-background video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Home Panel (Fixed Nav Bar) */
+#homePanel {
+    background-color: rgba(30, 30, 40, 0.9); /* Solid dark background color with 0.9 opacity */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow for depth */
+    border-radius: 8px;
+    padding: 8px 25px;
+    width: 90%; /* Set to 90% to keep some space on both sides */
+    max-width: 900px; /* Limit the width of the panel */
+    text-align: center;
+    position: fixed; /* Make the panel fixed at the top */
+    top: 20px; /* Adjust the top position to add some space from the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center the panel horizontally */
+    color: white;
+    z-index: 1000; /* Ensure it's always on top */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    animation: fadeIn 1.5s forwards; /* Fade-in animation on page load */
+    font-family: 'Cinzel', serif; /* Applying the Gothic font */
+}
+
+/* Home Panel Heading (Nav Text) */
+#homePanel h1 {
+    color: #2a3d66; /* Dark blue color for text */
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    letter-spacing: 2px; /* Add some spacing between letters */
+    text-shadow: 0 0 5px rgba(0, 191, 255, 0.8), 0 0 15px rgba(0, 191, 255, 0.6), 0 0 25px rgba(0, 191, 255, 0.4); /* Glowing blue effect */
+    animation: flicker 1.5s infinite alternate; /* Flickering animation */
+}
+
+/* Flickering Animation */
+@keyframes flicker {
+    0% {
+        text-shadow: 0 0 5px rgba(0, 191, 255, 0.8), 0 0 15px rgba(0, 191, 255, 0.6), 0 0 25px rgba(0, 191, 255, 0.4);
+    }
+    50% {
+        text-shadow: 0 0 5px rgba(0, 191, 255, 0.5), 0 0 10px rgba(0, 191, 255, 0.4), 0 0 15px rgba(0, 191, 255, 0.3);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(0, 191, 255, 0.8), 0 0 15px rgba(0, 191, 255, 0.6), 0 0 25px rgba(0, 191, 255, 0.4);
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1; /* Ends with full opacity */
+    }
+}
+
+/* Network Hacking Panel */
+#networkPanel {
+    background-color: rgba(30, 30, 40, 0.9); /* Solid dark background color with 0.9 opacity */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 8px 25px;
+    width: 90%; /* Set to 90% to keep some space on both sides */
+    max-width: 900px; /* Limit the width of the panel */
+    text-align: center;
+    position: absolute; /* Position it absolutely under the home panel */
+    top: 25%; /* Adjusted position to move it up */
+    left: 50%;
+    transform: translateX(-50%); /* Center the panel horizontally */
+    color: white;
+    z-index: 999; /* Ensure it appears below the home panel */
+    box-sizing: border-box;
+    animation: fadeIn 1.5s forwards; /* Fade-in animation */
+    font-family: 'Cinzel', serif; /* Applying the Gothic font */
+}
+
+/* Network Hacking Panel Heading */
+#networkPanel h1 {
+    color: rgba(252, 252, 252, 0.863); /* Set the text color to white */
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    letter-spacing: 2px; /* Add some spacing between letters */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.6), 0 0 25px rgba(255, 255, 255, 0.4); /* Glowing white effect */
+}
+
+/* WiFi Button - Same Style as Login Button with Fira Code Font */
+#wifiButton, #lightningButton { /* Target both buttons */
+    background-color: transparent; /* Transparent background */
+    color: white; /* White text */
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border: 2px solid #00bfff; /* Light blue border */
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer;
+    margin-top: 20px; /* Space above the button */
+    transition: all 0.3s ease;
+    font-family: 'Fira Code', monospace; /* Clean, coding-style font */
+    text-transform: uppercase; /* Uppercase appearance */
+    letter-spacing: 1px; /* Slight space between letters */
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.8); /* Subtle glowing effect */
+}
+
+#wifiButton:hover, #lightningButton:hover { /* Hover effect for both buttons */
+    background-color: #00bfff; /* Blue background on hover */
+    color: black; /* Change text color to black on hover */
+    box-shadow: 0 0 20px rgba(0, 191, 255, 1); /* Stronger glow */
+}
+
+#wifiButton:focus, #lightningButton:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust home and network panel sizes for smaller screens */
+    #homePanel, #networkPanel {
+        width: 85%; /* Reduce panel width */
+    }
+
+    #homePanel h1, #networkPanel h1 {
+        font-size: 2.2em; /* Smaller font size for headings */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust home and network panel sizes for very small screens */
+    #homePanel, #networkPanel {
+        width: 95%; /* Even smaller panels for mobile */
+    }
+
+    #homePanel h1, #networkPanel h1 {
+        font-size: 1.8em; /* Further reduce font size */
+    }
+}
