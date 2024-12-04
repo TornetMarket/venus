@@ -62,7 +62,7 @@ body, html {
 
 /* Login Panel */
 .login-panel {
-    background-color: rgba(30, 30, 40, 0.7); /* Nightshade black with slight transparency */
+    background-color: rgba(30, 30, 40, 0.8); /* Removed transparency */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow for depth */
     border-radius: 8px;
     padding: 30px;
@@ -148,6 +148,10 @@ body, html {
         font-size: 14px; /* Smaller font */
         width: calc(100% - 20px); /* Ensure consistent resizing */
     }
+
+    .glowing-text {
+        font-size: 2.5em; /* Adjusted font size for medium screens */
+    }
 }
 
 @media (max-width: 480px) {
@@ -163,5 +167,9 @@ body, html {
     .login-panel button {
         font-size: 12px;
         width: calc(100% - 20px); /* Ensure consistent resizing */
+    }
+
+    .glowing-text {
+        font-size: 2em; /* Adjusted font size for smaller screens */
     }
 }
